@@ -1,6 +1,8 @@
 """
 Convert Hafez poems to directed graph
 
+-- Homework 3
+-- Morteza ZAKERI
 """
 
 import sys

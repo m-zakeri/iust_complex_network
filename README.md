@@ -1,6 +1,25 @@
 # IUST Complex Network
 
-### About
+### Assignment 3
+1) Collect some networks
+2) Compute some metrics of these networks
+3) Analysis and discuss the results
+
+### Assignment 4
+Consider the three network datasets of assignment #3
+
+1) Fit E-R, W-S, B-A, and X models to these networks
+2) Select (find) X as the best fitting model
+3) Generate artificial graphs similar to that networks
+    * Specify the suitable generative parameters
+4) Compute some macro-level metrics
+    * Degree distribution, avg clustering coefficient, …
+5) Compare the features of the real and artificial graph counterparts
+6) Analyze the results (comparison)
+
+
+
+### About The New Network
 Sample word network
 
 ![sample_word_network](docs/img/sample_word_network.PNG)

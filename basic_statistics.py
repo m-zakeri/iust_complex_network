@@ -1,6 +1,8 @@
 """
 Compute the basic statistics for a given network
 
+-- Homework 3
+-- Morteza ZAKERI
 """
 
 import sys
@@ -11,11 +13,18 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 
-def extract_statistics(path=None):
-    G = nx.read_edgelist(path,create_using=nx.Graph)
+def extract_statistics(path=None, G=None):
+    if G is None:
+        G = nx.read_edgelist(path, create_using=nx.Graph)
     print('number_of_nodes', nx.number_of_nodes(G))
     print('number_of_edges', nx.number_of_edges(G))
     print('number_of_selfloops', nx.number_of_selfloops(G))
+
+    sum_degrees = 0
+    for i in nx.degree(G):
+        sum_degrees += i[1]
+
+    print('average_degree', sum_degrees / float(len(G)))
 
     # print('average_neighbor_degree', nx.average_neighbor_degree(G))
     #print('average_degree_connectivity', nx.average_degree_connectivity(G))
@@ -40,7 +49,7 @@ def extract_statistics(path=None):
 
 
     print('is_connected', nx.is_connected(G))
-    print('number', nx.number_connected_components(G))
+    print('number_connected_components', nx.number_connected_components(G))
     if nx.is_connected(G):
         print('diameter', nx.diameter(G))
         print('average_shortest_path_length', nx.average_shortest_path_length(G))
@@ -53,7 +62,7 @@ def extract_statistics(path=None):
         #     ccs_asp_list.append(nx.average_shortest_path_length(g))
 
         Gc = max(nx.connected_component_subgraphs(G), key=len)
-        print('wait ...')
+        print('***wait*** ...')
         print('max_cc_asp', nx.average_shortest_path_length(Gc))
         print('max_cc_diameter', nx.diameter(Gc))
 
@@ -66,8 +75,13 @@ def extract_statistics(path=None):
 
 
 def main(argv):
-    # path_txt_net1 = 'dataset/network_1/Cit-HepPh.txt'
-    # path_txt_net2 = 'dataset/network_2/CA-HepPh.txt'
+    """
+    Set your network path and then run the code
+    :param argv:
+    :return:
+    """
+    path_txt_net1 = 'dataset/network_1/Cit-HepPh.txt'
+    path_txt_net2 = 'dataset/network_2/CA-HepPh.txt'
     path_txt_net3 = 'dataset/network_3/hafez_poem_1._graph.txt'
     extract_statistics(path_txt_net3)
 
