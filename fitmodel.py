@@ -33,17 +33,18 @@ def fit1(path):
     # extract_statistics(path=None, G=erdos_renyi_graph)
 
     """
-        2 Simulate network_1 with erdos_renyi model
+        2 Simulate network_1 with watts_strogatz model
     """
-    watts_strogatz_graph = nx.generators.watts_strogatz_graph(n=34546, k=4010, p=0.01)
+    watts_strogatz_graph = nx.generators.watts_strogatz_graph(n=34546, k=24, p=0.01)  # MemoryError on my system!!!
+    # watts_strogatz_graph = nx.generators.watts_strogatz_graph(n=34546/2, k=24/2, p=0.01)
     nx.write_edgelist(G=watts_strogatz_graph, path='network_1_watts_strogatz_graph.txt')
     extract_statistics(path=None, G=watts_strogatz_graph)
     """
         3 Simulate network_1 with barabasi_albert model
     """
-    barabasi_albert_graph = nx.generators.barabasi_albert_graph(n=34546, m=12)
-    nx.write_edgelist(G=barabasi_albert_graph, path='network_1_barabasi_albert_graph.txt')
-    extract_statistics(path=None, G=barabasi_albert_graph)
+    # barabasi_albert_graph = nx.generators.barabasi_albert_graph(n=34546, m=12)
+    # nx.write_edgelist(G=barabasi_albert_graph, path='network_1_barabasi_albert_graph.txt')
+    # extract_statistics(path=None, G=barabasi_albert_graph)
 
 
 def fit2(path=None):
@@ -62,7 +63,7 @@ def fit2(path=None):
     # extract_statistics(path=None, G=erdos_renyi_graph)
 
     """
-        2 Simulate network_2 with erdos_renyi model
+        2 Simulate network_2 with watts_strogatz model
     """
     # watts_strogatz_graph = nx.generators.watts_strogatz_graph(n=12008, k=19, p=0.01)
     # nx.write_edgelist(G=watts_strogatz_graph, path='network_2_watts_strogatz_graph.txt')
@@ -87,16 +88,16 @@ def fit3(path=None):
     """
         1 Simulate network_3 with erdos_renyi model
     """
-    erdos_renyi_graph = nx.generators.erdos_renyi_graph(n=12025, p=0.008)
-    nx.write_edgelist(G=erdos_renyi_graph, path='network_3_erdos_renyi_graph.txt')
-    extract_statistics(path=None, G=erdos_renyi_graph)
+    # erdos_renyi_graph = nx.generators.erdos_renyi_graph(n=12025, p=0.0008)
+    # nx.write_edgelist(G=erdos_renyi_graph, path='network_3_erdos_renyi_graph.txt')
+    # extract_statistics(path=None, G=erdos_renyi_graph)
 
     """
-        2 Simulate network_3 with erdos_renyi model
+        2 Simulate network_3 with watts_strogatz model
     """
-    watts_strogatz_graph = nx.generators.watts_strogatz_graph(n=12025, k=10, p=0.01)
-    nx.write_edgelist(G=watts_strogatz_graph, path='network_3_watts_strogatz_graph.txt')
-    extract_statistics(path=None, G=watts_strogatz_graph)
+    # watts_strogatz_graph = nx.generators.watts_strogatz_graph(n=12025, k=10, p=0.01)
+    # nx.write_edgelist(G=watts_strogatz_graph, path='network_3_watts_strogatz_graph.txt')
+    # extract_statistics(path=None, G=watts_strogatz_graph)
     """
         3 Simulate network_3 with barabasi_albert model
     """
@@ -108,15 +109,16 @@ def fit3(path=None):
 
 def main(argv):
     path_txt_net1 = 'dataset/network_1/Cit-HepPh.txt'
+    path_txt_net1_gc = 'dataset/network_1/Cit-HepPhgc.txt'
     path_txt_net2 = 'dataset/network_2/CA-HepPh.txt'
     path_txt_net3 = 'dataset/network_3/hafez_poem_1._graph.txt'
 
     print('-' * 50, 'Network 1')
-    fit1(path_txt_net1)
-    print('-' * 50, 'Network 2')
-    fit2(path_txt_net2)
-    print('-' * 50, 'Network 3')
-    fit3(path_txt_net3)
+    fit1(path_txt_net1_gc)
+    # print('-' * 50, 'Network 2')
+    # fit2(path_txt_net2)
+    # print('-' * 50, 'Network 3')
+    # fit3(path_txt_net3)
 
 
 if __name__ == '__main__':

@@ -4,18 +4,27 @@ Compute the basic statistics for a given network
 -- Homework 3
 -- Morteza ZAKERI
 """
+from __future__ import unicode_literals
 
 import sys
 import os
 import io
 import csv
 import networkx as nx
+import matplotlib
 import matplotlib.pyplot as plt
+
+from bidi.algorithm import get_display
+import arabic_reshaper
 
 
 def extract_statistics(path=None, G=None):
     if G is None:
         G = nx.read_edgelist(path, create_using=nx.Graph)
+
+    # visualize_graph(graph=G)
+
+    # nx.algorithms.community.asyn_lpa_communities
     print('number_of_nodes', nx.number_of_nodes(G))
     print('number_of_edges', nx.number_of_edges(G))
     print('number_of_selfloops', nx.number_of_selfloops(G))
@@ -74,6 +83,89 @@ def extract_statistics(path=None, G=None):
     # Gr.number_of_selfloops()
 
 
+def extract_giant_connected_component(path=None, G=None):
+    if G is None:
+        G = nx.read_edgelist(path, create_using=nx.Graph, delimiter='\t', nodetype=int, encoding='utf8')
+    print('is_connected', nx.is_connected(G))
+    print('number_connected_components', nx.number_connected_components(G))
+    if nx.is_connected(G) is False:
+        print('***wait*** ...')
+        giant_connected_component = max(nx.connected_component_subgraphs(G), key=len)
+        nx.write_edgelist(giant_connected_component, path=path[:-4]+'gc.txt')
+    print('Giant connected Component is extracted.')
+
+
+def community_detection(path=None, G=None):
+    if G is None:
+        G = nx.read_edgelist(path, create_using=nx.DiGraph, delimiter=' ')
+    nx.algorithms.community.girvan_newman()
+    nx.algorithms.community.modularity()
+
+
+def visualize_graph(graph):
+    """
+
+    :param graph:
+    :return:
+    """
+    # matplotlib.rc('font', family='B Nazanin')
+    matplotlib.rc('font', **{'sans-serif': 'Arial', 'family': 'sans-serif'})
+
+    font_title = {'family': 'B Nazanin',
+                  'color': 'red',
+                  'weight': 'normal',
+                  'size': 12,
+                  }
+    font_labels = {'family': 'B Nazanin',
+                   'color': 'black',
+                   'weight': 'normal',
+                   'size': 12,
+                   }
+
+    # print(nx.nodes)
+    # new_names_dict = dict()
+    # for node_name in nx.nodes(graph):
+    #     print(node_name)
+        # new_names_dict.update({node_name: make_farsi_text(node_name)})
+
+    # nx.relabel_nodes(graph, mapping=new_names_dict)
+    subgraph = nx.subgraph(graph, nbunch=list(nx.nodes(graph))[:1000])
+    # nx.draw(subgraph, node_size=0, alpha=0.4, edge_color='r', font_size=11, with_labels=True)
+
+    new_names_dict = dict()
+    for node_name in nx.nodes(subgraph):
+        # print(node_name)
+        new_names_dict.update({node_name: make_farsi_text(node_name)})
+
+    # pos = nx.spring_layout(subgraph)
+    # pos = nx.circular_layout(subgraph)
+    ## pos = nx.rescale_layout(subgraph)
+    # pos = nx.random_layout(subgraph)
+    # pos = nx.spectral_layout(subgraph)
+
+    pos = nx.kamada_kawai_layout(subgraph)
+
+    # pos = nx.fruchterman_reingold_layout(subgraph)
+    # pos = nx.shell_layout(subgraph)
+    ## pos = nx.bipartite_layout(subgraph)
+
+
+    nx.draw_networkx_nodes(subgraph, pos, nodelist=list(nx.nodes(subgraph)), node_color='r', node_size=2, alpha=0.1)
+
+    nx.draw_networkx_edges(subgraph, pos, edgelist=list(nx.edges(subgraph)), width=0.9, alpha=0.2, edge_color='b')
+
+    nx.draw_networkx_labels(subgraph, pos, new_names_dict, font_family='B Nazanin', font_size=12)
+
+    plt.show()
+
+
+def make_farsi_text(x):
+    reshaped_text = arabic_reshaper.reshape(x)
+    farsi_text = get_display(reshaped_text)
+    print(farsi_text)
+    return farsi_text
+
+
 def main(argv):
     """
     Set your network path and then run the code
@@ -81,9 +173,13 @@ def main(argv):
     :return:
     """
     path_txt_net1 = 'dataset/network_1/Cit-HepPh.txt'
+    path_txt_net1_gc = 'dataset/network_1/Cit-HepPhgc.txt'
     path_txt_net2 = 'dataset/network_2/CA-HepPh.txt'
     path_txt_net3 = 'dataset/network_3/hafez_poem_1._graph.txt'
-    extract_statistics(path_txt_net3)
+    path_txt_net3 = 'dataset/network_3/hafez_poem_1._graph_vocabulary.txt'
+    extract_statistics(path_txt_net1_gc)
+    # extract_giant_connected_component(path=path_txt_net1)
+    # community_detection(path_txt_net1)
 
 
 if __name__ == '__main__':

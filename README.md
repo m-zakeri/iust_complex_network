@@ -1,5 +1,27 @@
 # IUST Complex Network
 
+
+## Hafez (حافظ) Wordnet
+We extracted a word network from _Hafez_ poems. A naive version of this network is presented here. Each word is connected to the next word in a same poetry. A subgraph cosist of first 100 nodes is shown in below figure.
+
+![Hafez_poem_sample_100_wordnet](docs/img/Hafez_poem_sample_100_wordnet.png)
+
+The above network is based on the preamble poetry in Divan-e-Hafez
+
+![Hafez_preamble_poem](docs/img/Hafez_preamble_poem.jpg)
+
+
+
+#### Degree Distrubution
+
+![Hafez_poem_degree_in_out_distribution](docs/img/Hafez_poem_degree_in_out_distribution.png)
+
+
+#### Hafez Poems (Subgraph with 1000 Nodes)
+![sample_word_network](docs/img/Hafez_wordnet_sample1000.png)
+
+## Network Analysis for Hafez Wordnet
+
 ### Assignment 3
 1) Collect some networks
 2) Compute some metrics of these networks
@@ -18,11 +40,11 @@ Consider the three network datasets of assignment #3
 6) Analyze the results (comparison)
 
 
+### Assignment 5
+Consider the three network datasets of previous assignments
+1) Find communities in each network
+2) Report “modularity” of the communities.
 
-### About The New Network
-Sample word network
-
-![sample_word_network](docs/img/sample_word_network.PNG)
 
 
 
