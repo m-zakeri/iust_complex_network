@@ -6,7 +6,9 @@ We extracted a word network from _Hafez_ poems. A naive version of this network 
 
 ![Hafez_poem_sample_100_wordnet](docs/img/Hafez_poem_sample_100_wordnet.png)
 
-The above network is based on the preamble poetry in Divan-e-Hafez
+
+The above network is based on the preamble poetry in Divan-e-Hafez:
+
 
 ![Hafez_preamble_poem](docs/img/Hafez_preamble_poem.jpg)
 
@@ -59,3 +61,6 @@ Consider the three network datasets of previous assignments
 
 [5] NetworkX, “NetworkX.” [Online]. Available: https://networkx.github.io/. [Accessed: 26-Apr-2019].
 
+[6] M. E. J Newman 'Networks: An Introduction', page 224, Oxford University Press 2011.
+
+[7] Clauset, A., Newman, M. E., & Moore, C. "Finding community structure in very large networks." Physical Review E 70(6), 2004.

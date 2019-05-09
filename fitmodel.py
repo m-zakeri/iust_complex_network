@@ -1,7 +1,8 @@
 """
 Fit model
 
--- Homework 4; Network generation practice
+-- Assignment #4;
+--- Network generation practice
 -- Morteza ZAKERI
 """
 

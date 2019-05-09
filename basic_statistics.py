@@ -18,6 +18,7 @@ from bidi.algorithm import get_display
 import arabic_reshaper
 
 
+# Assignment #3
 def extract_statistics(path=None, G=None):
     if G is None:
         G = nx.read_edgelist(path, create_using=nx.Graph)
@@ -83,6 +84,7 @@ def extract_statistics(path=None, G=None):
     # Gr.number_of_selfloops()
 
 
+# Assignment #4
 def extract_giant_connected_component(path=None, G=None):
     if G is None:
         G = nx.read_edgelist(path, create_using=nx.Graph, delimiter='\t', nodetype=int, encoding='utf8')
@@ -95,13 +97,27 @@ def extract_giant_connected_component(path=None, G=None):
     print('Giant connected Component is extracted.')
 
 
+# Assignment #5
 def community_detection(path=None, G=None):
+    """
+    Modularity Maximization Algorithm
+    :param path:
+    :param G:
+    :return:
+    """
     if G is None:
-        G = nx.read_edgelist(path, create_using=nx.DiGraph, delimiter=' ')
-    nx.algorithms.community.girvan_newman()
-    nx.algorithms.community.modularity()
+        G = nx.read_edgelist(path, create_using=nx.Graph)
+    # nx.algorithms.community.girvan_newman()
 
+    # G = nx.karate_club_graph()
+    c = list(nx.algorithms.community.greedy_modularity_communities(G))
+    print('Communities:', c)
+    print('Number of communities:', len(c))
 
+    Q = nx.algorithms.community.modularity(G, c)
+    print('Modularity:', Q)
+
+# Assignment #3
 def visualize_graph(graph):
     """
 
@@ -176,10 +192,10 @@ def main(argv):
     path_txt_net1_gc = 'dataset/network_1/Cit-HepPhgc.txt'
     path_txt_net2 = 'dataset/network_2/CA-HepPh.txt'
     path_txt_net3 = 'dataset/network_3/hafez_poem_1._graph.txt'
-    path_txt_net3 = 'dataset/network_3/hafez_poem_1._graph_vocabulary.txt'
+    path_txt_net3_v = 'dataset/network_3/hafez_poem_1._graph_vocabulary.txt'
     extract_statistics(path_txt_net1_gc)
-    # extract_giant_connected_component(path=path_txt_net1)
-    # community_detection(path_txt_net1)
+    extract_giant_connected_component(path=path_txt_net1)
+    community_detection(path_txt_net1_gc)
 
 
 if __name__ == '__main__':
