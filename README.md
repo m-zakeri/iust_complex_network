@@ -85,7 +85,7 @@ Simulate two epidemic models on two network models
 
 [8]	U. of Graz, “A (partially) interactive introduction to systems sciences.” [Online]. Available: http://systems-sciences.uni-graz.at/etextbook/networks/sirnetwork.html. [Accessed: 02-Jun-2019].
 
-[9]	G. Rossetti, L. Milli, S. Rinzivillo, A. S\^\irbu, F. Giannotti, and D. Pedreschi, “NDlib: a python library to model and analyze diffusion processes over complex networks,” CoRR, vol. abs/1801.0, 2018.
+[9]	G. Rossetti, L. Milli, S. Rinzivillo, A. Sirbu, F. Giannotti, and D. Pedreschi, “NDlib: a python library to model and analyze diffusion processes over complex networks,” CoRR, vol. abs/1801.0, 2018.
 
 [10]	NetworkX, “NetworkX.” [Online]. Available: https://networkx.github.io/. [Accessed: 26-Apr-2019].
 
