@@ -3,7 +3,14 @@ Fit model
 
 -- Assignment #4;
 --- Network generation practice
+
 -- Morteza ZAKERI
+--- m-zakeri.ir
+--- m-zakeri@live.com
+--- @mztel
+
+-- Semester 1397-98 (Spring 2019)
+-- Last update: 13980312
 """
 
 

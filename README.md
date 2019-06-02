@@ -23,6 +23,10 @@ The above network is based on the preamble poetry in Divan-e-Hafez:
 ![sample_word_network](docs/img/Hafez_wordnet_sample1000.png)
 
 ## Network Analysis for Hafez Wordnet
+To be complete . . .
+
+
+## Assignment Details
 
 ### Assignment 3
 1) Collect some networks
@@ -48,9 +52,23 @@ Consider the three network datasets of previous assignments
 2) Report “modularity” of the communities.
 
 
+### Assignment 6
+
+Simulate two epidemic models on two network models
+1) Four simulation scenarios
+    * E.g., SIRS epidemic model on BA network model
+
+#### SIR on Barabasi-Albert graph    
+![sir_barabasi_albert_graph](diffusion/sir_barabasi_albert_graph.png)
+
+#### SIS on Barabasi-Albert graph    
+![sis_barabasi_albert_graph](diffusion/sis_barabasi_albert_graph.png)
 
 
-### References
+
+
+
+## References
 [1] J. Leskovec, J. Kleinberg and C. Faloutsos. Graphs over Time: Densification Laws, Shrinking Diameters and Possible Explanations. ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD), 2005.
 
 [2] J. Gehrke, P. Ginsparg, J. M. Kleinberg. Overview of the 2003 KDD Cup. SIGKDD Explorations 5(2): 149-151, 2003.
@@ -64,3 +82,14 @@ Consider the three network datasets of previous assignments
 [6] M. E. J Newman 'Networks: An Introduction', page 224, Oxford University Press 2011.
 
 [7] Clauset, A., Newman, M. E., & Moore, C. "Finding community structure in very large networks." Physical Review E 70(6), 2004.
+
+[8]	U. of Graz, “A (partially) interactive introduction to systems sciences.” [Online]. Available: http://systems-sciences.uni-graz.at/etextbook/networks/sirnetwork.html. [Accessed: 02-Jun-2019].
+
+[9]	G. Rossetti, L. Milli, S. Rinzivillo, A. S\^\irbu, F. Giannotti, and D. Pedreschi, “NDlib: a python library to model and analyze diffusion processes over complex networks,” CoRR, vol. abs/1801.0, 2018.
+
+[10]	NetworkX, “NetworkX.” [Online]. Available: https://networkx.github.io/. [Accessed: 26-Apr-2019].
+
+[11]	J. Banks and J. S. Carson, “Introduction to discrete-event simulation,” 2003, pp. 17–23.
+
+
+***

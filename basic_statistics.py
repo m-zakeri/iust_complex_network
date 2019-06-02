@@ -1,10 +1,23 @@
 """
-Compute the basic statistics for a given network
+Compute the basic statistics, communities, and visualization for a given network
+I added support for persian visualization in Python and MatPlotLib
 
--- Homework 3
+-- Homework 3,4,5,6
 -- Morteza ZAKERI
+--- m-zakeri.ir
+--- m-zakeri@live.com
+--- @mztel
+
+-- Semester 1397-98 (Spring 2019)
+-- Last update: 13980312
 """
+
 from __future__ import unicode_literals
+
+
+__author__ = 'Morteza ZAKERI'
+__version__ = '0.1'
+
 
 import sys
 import os
@@ -18,6 +31,7 @@ from bidi.algorithm import get_display
 import arabic_reshaper
 
 
+# ---------------------------------------------
 # Assignment #3
 def extract_statistics(path=None, G=None):
     if G is None:
@@ -57,7 +71,6 @@ def extract_statistics(path=None, G=None):
     # print('closeness_centrality', nx.closeness_centrality(G))
     # print('betweenness_centrality', nx.betweenness_centrality(G))
 
-
     print('is_connected', nx.is_connected(G))
     print('number_connected_components', nx.number_connected_components(G))
     if nx.is_connected(G):
@@ -84,43 +97,11 @@ def extract_statistics(path=None, G=None):
     # Gr.number_of_selfloops()
 
 
-# Assignment #4
-def extract_giant_connected_component(path=None, G=None):
-    if G is None:
-        G = nx.read_edgelist(path, create_using=nx.Graph, delimiter='\t', nodetype=int, encoding='utf8')
-    print('is_connected', nx.is_connected(G))
-    print('number_connected_components', nx.number_connected_components(G))
-    if nx.is_connected(G) is False:
-        print('***wait*** ...')
-        giant_connected_component = max(nx.connected_component_subgraphs(G), key=len)
-        nx.write_edgelist(giant_connected_component, path=path[:-4]+'gc.txt')
-    print('Giant connected Component is extracted.')
-
-
-# Assignment #5
-def community_detection(path=None, G=None):
-    """
-    Modularity Maximization Algorithm
-    :param path:
-    :param G:
-    :return:
-    """
-    if G is None:
-        G = nx.read_edgelist(path, create_using=nx.Graph)
-    # nx.algorithms.community.girvan_newman()
-
-    # G = nx.karate_club_graph()
-    c = list(nx.algorithms.community.greedy_modularity_communities(G))
-    print('Communities:', c)
-    print('Number of communities:', len(c))
-
-    Q = nx.algorithms.community.modularity(G, c)
-    print('Modularity:', Q)
-
-# Assignment #3
+# Helper function for Assignment #3
 def visualize_graph(graph):
     """
-
+    It is better to use _Seaborn_ or _Bokeh_ for visualization rather than pure MatPlotLib.
+    But for now I just decide to use MatPlotLib.
     :param graph:
     :return:
     """
@@ -175,11 +156,62 @@ def visualize_graph(graph):
     plt.show()
 
 
+# Helper function for Assignment #3
 def make_farsi_text(x):
     reshaped_text = arabic_reshaper.reshape(x)
     farsi_text = get_display(reshaped_text)
     print(farsi_text)
     return farsi_text
+
+
+# ---------------------------------------------
+# Assignment #4
+def extract_giant_connected_component(path=None, G=None):
+    if G is None:
+        G = nx.read_edgelist(path, create_using=nx.Graph, delimiter='\t', nodetype=int, encoding='utf8')
+    print('is_connected', nx.is_connected(G))
+    print('number_connected_components', nx.number_connected_components(G))
+    if nx.is_connected(G) is False:
+        print('***wait*** ...')
+        giant_connected_component = max(nx.connected_component_subgraphs(G), key=len)
+        nx.write_edgelist(giant_connected_component, path=path[:-4]+'gc.txt')
+    print('Giant connected Component is extracted.')
+
+
+# ---------------------------------------------
+# Assignment #5
+def community_detection(path=None, G=None):
+    """
+    Modularity Maximization Algorithm
+    :param path:
+    :param G:
+    :return:
+    """
+    if G is None:
+        G = nx.read_edgelist(path, create_using=nx.Graph)
+    # nx.algorithms.community.girvan_newman()
+
+    # G = nx.karate_club_graph()
+    c = list(nx.algorithms.community.greedy_modularity_communities(G))
+    print('Communities:', c)
+    print('Number of communities:', len(c))
+
+    Q = nx.algorithms.community.modularity(G, c)
+    print('Modularity:', Q)
+
+
+# ---------------------------------------------
+# Assignment #6
+def epidemic_simulation(path=None, G=None):
+    """
+    Epidemic simulation
+    :param path:
+    :param G:
+    :return:
+    """
+    if G is None:
+        G = nx.read_edgelist(path, create_using=nx.Graph)
+
 
 
 def main(argv):
@@ -188,14 +220,18 @@ def main(argv):
     :param argv:
     :return:
     """
+    # My networks paths
     path_txt_net1 = 'dataset/network_1/Cit-HepPh.txt'
     path_txt_net1_gc = 'dataset/network_1/Cit-HepPhgc.txt'
     path_txt_net2 = 'dataset/network_2/CA-HepPh.txt'
     path_txt_net3 = 'dataset/network_3/hafez_poem_1._graph.txt'
     path_txt_net3_v = 'dataset/network_3/hafez_poem_1._graph_vocabulary.txt'
-    extract_statistics(path_txt_net1_gc)
-    extract_giant_connected_component(path=path_txt_net1)
-    community_detection(path_txt_net1_gc)
+
+    # path_arman = 'dataset/arman/friendship.txt'  ## Arman's networks :)
+    # extract_statistics(path_txt_net1_gc)
+    # extract_giant_connected_component(path=path_txt_net1)
+    # community_detection(path_txt_net1_gc)
+    # community_detection(path_arman)  ## Community detection for Arman's networks :)
 
 
 if __name__ == '__main__':
