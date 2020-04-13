@@ -49,7 +49,8 @@ def sir_simulation(path=None, G=None):
     # Network Model Definition
     # G = nx.erdos_renyi_graph(1000, 0.1)
     if G is None:
-        G = nx.read_edgelist(path, create_using=nx.Graph)
+        # G = nx.read_edgelist(path, create_using=nx.Graph)
+        G = nx.generators.erdos_renyi_graph(n=500, p=0.1)
     # Model Selection
     model = sir.SIRModel(G)
 
@@ -61,11 +62,11 @@ def sir_simulation(path=None, G=None):
     config.add_model_parameter('beta', 0.001)
     config.add_model_parameter('gamma', 0.01)
     # config.add_model_parameter("fraction_infected", 0.1)
-    config.add_model_parameter("percentage_infected", 0.05)
+    config.add_model_parameter("percentage_infected", 0.02)
     model.set_initial_status(config)
 
     # Simulation
-    iterations = model.iteration_bunch(200)
+    iterations = model.iteration_bunch(2000)
     trends = model.build_trends(iterations)
 
     # Visualize the results
@@ -73,7 +74,7 @@ def sir_simulation(path=None, G=None):
     from ndlib.viz.bokeh.DiffusionTrend import DiffusionTrend
 
     viz = DiffusionTrend(model, trends)
-    p = viz.plot(width=600, height=500)
+    p = viz.plot(width=800, height=500)
     show(p)
 
     # The prevalence plot captures the variation (delta) of nodes for each status in consecutive iterations.
@@ -134,9 +135,10 @@ def main(argv):
     """
     network1_path = 'diffusion/erdos_renyi_graph_1000'
     network2_path = 'diffusion/barabasi_albert_graph_1000'
+    real_network_path = 'dataset/network_3/hafez_poem_1._graph.txt'
     # generate_graph()
-    # sir_simulation(path=network2_path, G=None)
-    sis_simulation(path=network2_path, G=None)
+    sir_simulation(path=real_network_path, G=None)
+    # sis_simulation(path=network2_path, G=None)
 
 
 if __name__ == '__main__':
