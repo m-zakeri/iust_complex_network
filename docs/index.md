@@ -49,16 +49,17 @@ Consider the three network datasets of previous assignments
 2) Report “modularity” of the communities.
 
 ### Assignment 6
-
 Simulate two epidemic models on two network models
 1) Four simulation scenarios
     * E.g., SIRS epidemic model on BA network model
 
+The importance of epidemy models is obvious in cases such as **COVID-19** pandemic. Here we are going to perform some epidemics simulation on different graph models and depicting the result. 
+
 #### SIR on Barabasi-Albert graph    
-![sir_barabasi_albert_graph](../diffusion/sir_barabasi_albert_graph.png)
+![sir_barabasi_albert_graph](img/sir_barabasi_albert_graph.png)
 
 #### SIS on Barabasi-Albert graph    
-![sis_barabasi_albert_graph](../diffusion/sis_barabasi_albert_graph.png)
+![sis_barabasi_albert_graph](img/sis_barabasi_albert_graph.png)
 
 
 
