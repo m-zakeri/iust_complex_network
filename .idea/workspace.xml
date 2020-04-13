@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad3d6ee9-737d-4bd1-9ce6-d110022e7daa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diffusion_simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/diffusion_simulation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitmodel.py" beforeDir="false" afterPath="$PROJECT_DIR$/fitmodel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocess_network3.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess_network3.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +42,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager" selected="Python.diffusion_simulation">
@@ -213,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1559495100739</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Update README.md">
+      <created>1586791070938</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1586791070938</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -223,6 +231,21 @@
     <MESSAGE value="assignment 5 is added. 980219" />
     <MESSAGE value="assignment 6 is added. 980312" />
     <MESSAGE value="Reference is now complete." />
-    <option name="LAST_COMMIT_MESSAGE" value="Reference is now complete." />
+    <MESSAGE value="Update README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="587" y="85" key="CommitChangelistDialog2" timestamp="1586791069960">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="587" y="85" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1586791069960" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1586791074427">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586791074427" />
+    <state x="654" y="308" key="git4idea.merge.GitPullDialog" timestamp="1586791265687">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="654" y="308" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586791265687" />
   </component>
 </project>

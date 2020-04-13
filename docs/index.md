@@ -1,5 +1,5 @@
 # Introduction
-This repository contains my assignments and projects submitted as a requirement of IUST complex network course. 
+This repository contains my assignments and projects submitted as a requirement of IUST Dynamic Complex Network course.
 
 
 ## Hafez (حافظ) Wordnet

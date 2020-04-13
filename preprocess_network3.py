@@ -54,10 +54,10 @@ def convert_txt_to_id():
     graph = ''
     for one_beyt in total_line_list:
         i = 0
-        while i < len(one_beyt)-1:
-            graph += str(one_beyt[i]) + ',' + str(one_beyt[i+1]) + '\n'
+        while i < len(one_beyt) - 1:
+            graph += str(one_beyt[i]) + ',' + str(one_beyt[i + 1]) + '\n'
             i += 1
-    with io.open(path_txt[:-3]+'_graph_vocabulary.txt', mode='w', encoding='utf-8') as f:
+    with io.open(path_txt[:-3] + '_graph_vocabulary.txt', mode='w', encoding='utf-8') as f:
         f.write(graph)
 
 

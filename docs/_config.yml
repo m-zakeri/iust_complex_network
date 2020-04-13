@@ -1,1 +1,5 @@
 theme: jekyll-theme-minimal
+title: "IUST-CmplexNetwork"
+description: "Sample projects and assignments in dynamic complex networks"
+logo: "./img/Hafez_poem_wordnet.png"
+show_downloads: "true"

@@ -13,8 +13,6 @@ Fit model
 -- Last update: 13980312
 """
 
-
-
 import sys
 import os
 import io
